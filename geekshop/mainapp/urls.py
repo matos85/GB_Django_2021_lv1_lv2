@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import path
-from .views import main, products, contact
+from .views import index, products, contact
 
 urlpatterns = [
-    path('', main),
+    path('', index),
     path('products/', products),
     path('contact/', contact),
 ]
