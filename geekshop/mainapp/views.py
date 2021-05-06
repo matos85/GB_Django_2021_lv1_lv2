@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
-from mainapp.models import Product
+from mainapp.models import Product, ProductCategory
+
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
@@ -51,3 +53,35 @@ def products(request):
         'product_1': product_1,
     }
     return render(request, 'mainapp/products.html', context)
+
+# еще не использовл
+def productsnew(request):
+    products = Product.objects.all()[:4]
+
+    context = {
+        'slogan': 'Супер удобные стулья',
+        'topic': 'Тренды',
+        'products': products,
+    }
+    return render(request, 'index.html', context)
+
+
+# еще не использовл
+def categories(request, pk=None):
+    print(pk)
+    title= 'продукты'
+    categories = ProductCategory.objects.all()
+    if pk is not None:
+        if pk ==0:
+            products = Product.object.all().order_by('price')
+            category = {'name': 'все'}
+        else:
+            category = get_object_or_404(ProductCategory, pk=pk)
+            products = Product.object.filter(category_id__pk=pk).order_by('price')
+    context = {
+        'title': title,
+        'categories': categories,
+        'category': 'category',
+        'products': 'products',
+    }
+    return render(request, 'products_list.html', context=context)

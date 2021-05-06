@@ -25,6 +25,7 @@ urlpatterns = [
     path('catalog/', mainapp.products, name='products'),
     path('contact/', mainapp.contact, name='contacts'),
     # path('', include(urls)),
+    path('category/int:pk/', mainapp.products, name='products'),
 
     path('admin/', admin.site.urls),
 

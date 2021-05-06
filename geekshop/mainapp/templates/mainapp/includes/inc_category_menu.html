@@ -1,0 +1,18 @@
+<div class="links-menu">
+	{% for lin in categories %}
+	<li>
+		<a href="{% url 'products:category' 0 %}"
+		   class="{% if request %}">
+
+		</a>
+	</li>
+
+
+				<ul class="menu">
+					<li><a href="{% url 'index' %}" class="active">домой</a></li>
+					<li><a href="{% url 'products' %}">продукты</a></li>
+					<li><a href="{% url 'contacts' %}" >контакты</a></li>
+				</ul>
+				<a href="#" class="search"></a>
+                <a href="#" class="basket"></a>
+</div>
