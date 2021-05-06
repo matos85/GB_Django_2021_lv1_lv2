@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from mainapp.models import Product
+
 
 def index(request):
     context = {
@@ -39,3 +41,13 @@ def contact(request):
         'contacts': contacts,
     }
     return render(request, 'mainapp/contact.html', context)
+
+
+def products(request):
+    product_1 = Product.objects.all()[0]
+
+    context = {
+        'page_title': 'каталог',
+        'product_1': product_1,
+    }
+    return render(request, 'mainapp/products.html', context)
