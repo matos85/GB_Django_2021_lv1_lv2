@@ -8,20 +8,12 @@
 		</div>
 
 		<div class="details">
-			<div class="links clearfix">
-				<ul class="links-menu">
-					<li><a href="#" class="active">все</a></li>
-					<li><a href="#">дом</a></li>
-					<li><a href="#">офис</a></li>
-					<li><a href="#">модерн</a></li>
-					<li><a href="#">классика</a></li>
-				</ul>
-			</div>
+			{% include 'mainapp/includes/category_menu.html' %}
 
 			<div class="details-products">
 				<div class="details-slider">
 					<div class="slider-product">
-						<img src="/media/{{ product_1.image }}" alt=">
+						<img src="/media/{{ product_1.image }}" alt=''>
 					</div>
 					<div class="slider-control">
 						<div class="block">
@@ -50,9 +42,9 @@
 						заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
 					</a>
 					<div class="description-text">
-						<p>Расположитесь комфортно.</p> 
+						<p>Расположитесь комфортно.</p>
 						<p>Отличное качество материалов
-						позволит вам это.</p> 
+						позволит вам это.</p>
 						<p>Различные цвета</p>
 						<p>высочайший уровень
 						эргономики и прочность.</p>

@@ -266,6 +266,12 @@ html, body {
 	width: 270px;
 	position: relative;
 }
+.block a img {
+	width: 100%;
+}
+.block .text img {
+	width: 40%;
+}
 .tab-content a .text {
 	display: none;
 	height: 268px;

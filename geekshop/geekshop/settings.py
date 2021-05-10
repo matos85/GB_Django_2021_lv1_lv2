@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
+    'authapp',
 ]
 
 # врутрение обработчики
@@ -124,6 +125,10 @@ STATICFILES_DIRS = [
 # настройки медиа файлов. для сервера разработки
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # место расположение на диске
+
+
+AUTH_USER_MODEL = 'authapp.ShopUser'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
