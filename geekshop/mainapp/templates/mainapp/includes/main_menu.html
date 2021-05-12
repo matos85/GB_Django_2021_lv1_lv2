@@ -1,0 +1,45 @@
+<div class="header clearfix">
+    <a href="{% url 'main:index' %}" class="logo"></a>
+    <ul class="menu">
+        <li>
+            <a href="{% url 'main:index' %}"
+               class="{% if request.resolver_match.route == '' %}
+					active
+					{%endif%}">
+                домой
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'main:products' %}"
+               class="{% if request.resolver_match.routr == 'products/' %}
+					active
+					{%endif%}">
+                продукты
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'main:contacts' %}"
+               class="{% if request.resolver_match.routr == 'contacts/' %}
+					active
+					{%endif%}">
+                Контакты
+            </a>
+        </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+        {% endif %}
+        <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'auth:logout' %}">выйти</a>
+            {% else %}
+            <a href="{% url 'auth:login' %}">войти</a>
+            {% endif %}
+        </li>
+    </ul>
+    <a href="#" class="search"></a>
+</div>
+</div>
