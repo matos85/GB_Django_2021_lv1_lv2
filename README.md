@@ -1,1 +1,1 @@
-# django1 зглушка
+# django1 
