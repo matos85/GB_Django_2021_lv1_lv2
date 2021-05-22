@@ -28,7 +28,7 @@ class UserUpdateView(UpdateView):
     template_name = 'authapp/edit.html'
     context_object_name = 'user'
     success_url = reverse_lazy('admin_staff:users')
-    # fields = '__all__'
+
     fields = ['first_name', 'last_name', 'avatar', 'age']
 
 
