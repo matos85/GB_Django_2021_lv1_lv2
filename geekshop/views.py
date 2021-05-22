@@ -5,7 +5,6 @@ from mainapp.models import Product, ProductCategory
 
 
 def main(request):
-
     products = Product.objects.all()[:4]
     basket = ''
 
