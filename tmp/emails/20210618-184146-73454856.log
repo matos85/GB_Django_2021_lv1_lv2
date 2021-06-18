@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0J/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IGhlcm8xMw==?=
+From: django@gb.local
+To: matos85@mail.ru
+Date: Fri, 18 Jun 2021 15:41:46 -0000
+Message-ID: <162403090612.12892.2834945365978363026@DESKTOP-HOME>
+
+Для подтверждения учетной записи hero13 перейдите по ссылке: 
+http://localhost:8000/auth/verify/matos85@mail.ru/2fa3c1120bad4b7c3c884d34794341d4e8cf924e/
+-------------------------------------------------------------------------------
