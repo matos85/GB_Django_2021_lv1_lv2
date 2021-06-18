@@ -96,7 +96,7 @@ def verify(request, email, key):
     print(user.is_activation_key_expired())
     if user and user.activation_key == key and not user.is_activation_key_expired():
         user.is_active = True
-        user.activation_key = None
+        user.activation_key = ''
         user.activation_key_created = None
         user.save()
         auth.login(request, user)
