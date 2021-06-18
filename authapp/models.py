@@ -14,7 +14,6 @@ class ShopUser(AbstractUser):
 
     def is_activation_key_expired(self):
         if now() < self.activation_key_created + timedelta(hours=48):
-            print('tyt')
             return False
         return True
 
