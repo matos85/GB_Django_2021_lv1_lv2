@@ -9,7 +9,7 @@ from django.views.generic.detail import DetailView
 
 from basketapp.models import Basket
 from ordersapp.models import Order, OrderItem
-from ordersapp.forms import OrderItemEditForm
+from ordersapp.forms import OrderItemForm
 
 
 class OrderList(ListView):
@@ -19,45 +19,25 @@ class OrderList(ListView):
         return Order.objects.filter(user=self.request.user, is_active=True)
 
 
-# class OrderCreate(CreateView):
-#     model = Order
-#     success_url = reverse_lazy('order:list')
-#     fields = []
-#
-#     OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemEditForm, extra=1)
-#
-#     def form_valid(self, form):
-#         context = self.get_context_data()
-#         orderitems = context['orderitems']
-#
-#         with transaction.atomic():
-#             # form.instanse.user = self.request.user
-#             self.object = form.save()
-#             if orderitems.is_valid():
-#                 orderitems.instance = self.object
-#                 orderitems.save()
-#
-#         if self.object.get_total_cost() == 0:
-#             self.object.delete()
-#
-#         return super().form_valid(form)
-
-##########################
-class OrderCreate(CreateView):
+class OrderItemsCreate(CreateView):
     model = Order
     fields = []
     success_url = reverse_lazy('ordersapp:orders_list')
 
     def get_context_data(self, **kwargs):
-        data = super(OrderCreate, self).get_context_data(**kwargs)
-        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemEditForm, extra=1)
+        data = super(OrderItemsCreate, self).get_context_data(**kwargs)
+        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=1)
 
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
         else:
-            basket_items = Basket.get_items(self.request.user)
+            basket_items = list(Basket.objects.filter(user=self.request.user))
             if len(basket_items):
-                OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemEditForm, extra=len(basket_items))
+                OrderFormSet = inlineformset_factory(Order,
+                                                     OrderItem,
+                                                     form=OrderItemForm,
+                                                     extra=len(basket_items)
+                                                     )
                 formset = OrderFormSet()
                 for num, form in enumerate(formset.forms):
                     form.initial['product'] = basket_items[num].product
@@ -84,24 +64,22 @@ class OrderCreate(CreateView):
         if self.object.get_total_cost() == 0:
             self.object.delete()
 
-        return super(OrderCreate, self).form_valid(form)
+        return super(OrderItemsCreate, self).form_valid(form)
 
 
-#########################
 
-class OrderUpdate(UpdateView):
+class OrderItemsUpdate(UpdateView):
     model = Order
-    success_url = reverse_lazy('order:list')
     fields = []
+    success_url = reverse_lazy('ordersapp:orders_list')
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemEditForm, extra=1)
+        data = super(OrderItemsUpdate, self).get_context_data(**kwargs)
+        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=1)
         if self.request.POST:
-            formset = OrderFormSet(self.request.POST, instance=self.object)
+            data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
         else:
-            formset = OrderFormSet(instance=self.object)
-        data['orderitems'] = formset
+            data['orderitems'] = OrderFormSet(instance=self.object)
         return data
 
     def form_valid(self, form):
@@ -109,21 +87,21 @@ class OrderUpdate(UpdateView):
         orderitems = context['orderitems']
 
         with transaction.atomic():
-            # form.instanse.user = self.request.user
             self.object = form.save()
             if orderitems.is_valid():
                 orderitems.instance = self.object
                 orderitems.save()
 
-        if self.object.get_total_cost() == 0:
+        if self.object.get_total_cost == 0:
             self.object.delete()
 
-        return super().form_valid(form)
+        return super(OrderItemsUpdate, self).form_valid()
+
 
 
 class OrderDelete(DeleteView):
     model = Order
-    success_url = reverse_lazy('order:list')
+    success_url = reverse_lazy('ordersapp:orders_list')
 
 
 class OrderRead(DetailView):
@@ -135,9 +113,10 @@ class OrderRead(DetailView):
         return context
 
 
-def forming_complete(request, pk):
+
+def order_forming_complete(request, pk):
     order = get_object_or_404(Order, pk=pk)
     order.status = Order.SENT_TO_PROCEED
     order.save()
 
-    return HttpResponseRedirect(reverse('order:list'))
+    return HttpResponseRedirect(reverse('ordersapp:orders_list'))
