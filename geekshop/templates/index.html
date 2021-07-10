@@ -3,17 +3,17 @@
 
 {% block main_slider %}
     <div class="slider">
-    {% include 'includes/inc_main_menu.html' %}
-			<div class="text-slider">
-				<h3 class="green">{{ topic }} {%  now "Y" %}</h3>
-				<h3 class="big">{{ slogan }}</h3>
-				<p>Новый уровень комфорта. Отличные характеристики.</p>
-				<a href="#" class="button-order">заказать <img src="/static/img/arrow.png" alt=""></a>
-			</div>	
-			<div class="navi">
-				<a href="#"></a><a href="#"></a><a href="#"></a>
-			</div>
-		</div>
+        {% include 'includes/inc_main_menu.html' %}
+        <div class="text-slider">
+            <h3 class="green">{{ topic }} {% now "Y" %}</h3>
+            <h3 class="big">{{ slogan }}</h3>
+            <p>Новый уровень комфорта. Отличные характеристики.</p>
+            <a href="#" class="button-order">заказать <img src="/static/img/arrow.png" alt=""></a>
+        </div>
+        <div class="navi">
+            <a href="#"></a><a href="#"></a><a href="#"></a>
+        </div>
+    </div>
 {% endblock %}
 
 {% block featured %}
