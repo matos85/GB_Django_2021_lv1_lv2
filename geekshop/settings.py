@@ -9,23 +9,27 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import json
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=02iin##y5bt2x%(t6ry!wh@&16b@=c9pt6h8+!5qekwv3ufmb'
+SECRET_KEY = 'django-insecure-a(b@o61*2t7a57=879dwevs!@@gvd%#9s)!&v$z*z$)hhl*&!1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -40,9 +44,8 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
-    'social_django',
     'ordersapp',
-
+    'social_django',
 ]
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
@@ -63,7 +66,7 @@ ROOT_URLCONF = 'geekshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['geekshop/templates'],  # указываем в какой еще дирректории искать шаблоны - нашу базовую дирректорию
+        'DIRS': ['geekshop/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.basket',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
@@ -79,6 +83,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'geekshop.wsgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -89,6 +94,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -108,12 +114,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -121,13 +128,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "geekshop", "static"),
+    os.path.join(BASE_DIR, 'geekshop', "static"),
 )
 
 # для поиска папок со статикой внутри папок приложений
@@ -141,38 +149,19 @@ STATICFILES_FINDERS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# для работы с media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_URL = '/auth/login/'
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'django@gb.local'
-EMAIL_HOST_PASSWORD = 'geekbrains'
-EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'admin@example.com'
 
-# python3 -m smtpd
-# EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
-
-# для хранения в фале
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = 'tmp/emails/'
+EMAIL_FILE_PATH = 'tmp/emails'
 
 DOMAIN_NAME = 'http://localhost:8000'
 
-# для меня
-# хранить лог и пасс в .env файле для боевого сервера (настройка в уроке)
 
-# EMAIL_HOST ='smtp.yandex.ru'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'myemail@yandex.ru'
-# EMAIL_HOST_PASSWORD = 'mypass'
-# EMAIL_USE_SSL = True
-
-
-# для меня
-# аутентификация через вк
 LOGIN_ERROR_URL = '/'
 
 SOCIAL_AUTH_VK_OAUTH2_IGNORE_DEFAULT_SCOPE = True
@@ -195,9 +184,6 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
-# Загружаем секреты из файла
-with open('geekshop/vk.json', 'r') as f:
-    VK = json.load(f)
 
-SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
-SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
+SOCIAL_AUTH_VK_OAUTH2_KEY = os.getenv('SOCIAL_AUTH_VK_OAUTH2_KEY')
+SOCIAL_AUTH_VK_OAUTH2_SECRET = os.getenv('SOCIAL_AUTH_VK_OAUTH2_SECRET')

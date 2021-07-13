@@ -1,19 +1,22 @@
-{% if object.status == 'FM' %}
-    <button class="btn btn-warning btn-round form-control last">
-        <a href="{% url 'ordersapp:order_forming_complete' object.pk %}">
-            совершить покупку
-        </a>
-    </button>
-    <button class="btn btn-default btn-round form-control last">
-        <a href="{% url 'ordersapp:order_delete' object.pk %}">удалить</a>
-    </button>
-{% endif %}
-<button class="btn btn-info btn-round form-control last">
-    <a href="{% url 'ordersapp:orders_list' %}">
-        к списку заказов
-    </a>
-</button>
-<button class="btn btn-default btn-round form-control last">
-    <a href="{% url 'index' %}">на главную</a>
-</button>
+<div class="text-center">
+    {% if object.status == 'FM' %}
+        <div class="mb-1">
+            <a href="{% url 'order:forming_complite' object.pk %}" class="btn btn-success">
+                совершить покупку
+            </a>
+        </div>
+        <div class="mb-1">
+            <a href="{% url 'order:delete' object.pk %}" class="btn btn-danger">удалить</a>
+        </div>
+    {% endif %} 
+        <div class="mb-1">
+            <a href="{% url 'order:list' %}" class="btn btn-info">
+                к списку заказов
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'index' %}" class="btn btn-light">на главную</a>
+        </div>
+</div>
+
 
