@@ -1,0 +1,11 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Account verify
+From: admin@example.com
+To: matos85@mail.ru
+Date: Tue, 13 Jul 2021 10:42:51 -0000
+Message-ID: <162617297177.7844.2779458893176144675@DESKTOP-HOME>
+
+Your link for account activation: http://localhost:8000/auth/verify/matos85@mail.ru/c52d128c0405e095f95f916d10a82ab753d5d5dd
+-------------------------------------------------------------------------------
