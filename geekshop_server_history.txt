@@ -1,0 +1,129 @@
+    1  ssh-keygen
+    2  apt install mc
+    3  apt update
+    4  apt upgrade
+    5  apt install mc
+    6  mc
+    7  cat /root/.ssh/id_rsa.pub
+    8  sudo cat /root/.ssh/id_rsa.pub
+    9  ssh-keygen
+   10  cat /root/.ssh/id_rsa.pub
+   11  ssh-copy-id root@178.21.11.220
+   12  ssh-keygen
+   13  cat /root/.ssh
+   14  cat /root/.ssh/
+   15  cat /root/.ssh/id_rsa.pub
+   16  mc
+   17  apt update
+   18  apt install nginx
+   19  apt install postgresql postgres
+   20  apt install python3-venv
+   21  apt install git
+   22  apt install mc 
+   23  mcedit /etc/postgresql/12/main/pg_hba.conf
+   24  systemctl restart postgresql
+   25  systemctl status postgresql
+   26  useradd -g www-data -m django
+   27  cd /home/django
+   28  git clone git@github.com:matos85/GB_Django_2021_lv1_lv2.git
+   29  ls
+   30  ls -la
+   31  mc
+   32  python3 -m venv env
+   33  source env/bin/activate
+   34  deactivate
+   35  mc
+   36  cd geekshop
+   37  python3 -m venv env
+   38  source env/bin/activate
+   39  pip3 install -r requirements.txt
+   40  mc
+   41  deactivate
+   42  cd..
+   43  cd ..
+   44  ls
+   45  cd ..
+   46  ls
+   47  cd /home/django
+   48  git clone https://github.com/matos85/GB_Django_2021_lv1_lv2/pull/15
+   49  mc
+   50  git clone git@github.com:matos85/GB_Django_2021_lv1_lv2.git
+   51  mc
+   52  git clone git@github.com:matos85/GB_Django_2021_lv1_lv2.git -b leeson12
+   53  mc
+   54  git clone git@github.com:matos85/GB_Django_2021_lv1_lv2.git -b leeson12
+   55  mc
+   56  cd /home/django
+   57  source env/bin/activate
+   58  cd geekshop
+   59  source env/bin/activate
+   60  pip3 install -r requirements.txt
+   61  pip3 install gunicorn
+   62  psql -U postgres
+   63  python3 manage.py migrate
+   64  mc
+   65  python3 manage.py fill_db
+   66  python3 manage.py runserver
+   67  python3 manage.py runserver 0.0.0.0:8000
+   68  mcedit /etc/systemd/system/gunicorn.service
+   69  systemctl enable gunicorn
+   70  systemctl start gunicorn
+   71  systemctl status gunicorn
+   72  systemctl start gunicorn
+   73  systemctl status gunicorn
+   74  mcedit /etc/systemd/system/gunicorn.service
+   75  systemctl start gunicorn
+   76  chown -R django /home/django/
+   77  systemctl start gunicorn
+   78  systemctl status gunicorn
+   79  chown -R django /home/django/
+   80  systemctl status gunicorn
+   81  systemctl enable gunicorn
+   82  systemctl start gunicorn
+   83  systemctl status gunicorn
+   84  mc
+   85  ls- la
+   86  ls -la
+   87  chown -R django /home/django/
+   88  cd ..
+   89  chown -R django /home/django/
+   90  cd ..
+   91  chown -R django /home/django/
+   92  cd /home/django/
+   93  ls
+   94  cd /home/django/geeshop
+   95  cd /home/django/geekshop
+   96  ls -la
+   97  mcedit /etc/systemd/system/gunicorn.service
+   98  systemctl enable gunicorn
+   99  systemctl start gunicorn
+  100  systemctl status gunicorn
+  101  shutdown -r now
+  102  systemctl status gunicorn
+  103  mcedit /etc/nginx/sites-available/geekshop
+  104  ln -s /etc/nginx/sites-available/geekshop /etc/nginx/sites-enabled/
+  105  mc
+  106  nginx -t
+  107  systemctl restart nginx
+  108  systemctl restart gunicorn
+  109  systemctl status gunicorn
+  110  mc
+  111  sudo systemctl enable gunicorn
+  112  sudo systemctl start gunicorn
+  113  sudo systemctl status gunicorn
+  114  ~
+  115  source env/bin/activate
+  116  cd /home/django/geekshop
+  117  source env/bin/activate
+  118  mcedit /etc/systemd/system/gunicorn.service
+  119  systemctl enable gunicorn
+  120  systemctl start gunicorn
+  121  sudo systemctl status gunicorn
+  122  mcedit /etc/systemd/system/gunicorn.service
+  123  mc
+  124  mcedit /etc/systemd/system/gunicorn.service
+  125  systemctl start gunicorn
+  126  systemctl enable gunicorn
+  127  systemctl start gunicorn
+  128  sudo systemctl status gunicorn
+  129  history > geekshop_server_history.txt
