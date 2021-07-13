@@ -1,14 +1,22 @@
 [
     {
-      "name": "Дом",
-      "description": "",
-      "created": "2021-05-04T17:31:23.774Z",
-      "updated": "2021-05-04T17:31:23.774Z"
-  },
-  {
-      "name": "Офис",
-      "description": "",
-      "created": "2021-05-04T17:31:29.207Z",
-      "updated": "2021-05-04T17:31:29.207Z"
-  }
+        "name": "дом",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "name": "офис",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "name": "модерн",
+        "description": "",
+        "is_active": true
+    },
+    {
+        "name": "классика",
+        "description": "",
+        "is_active": true
+    }
 ]
