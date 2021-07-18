@@ -2,62 +2,54 @@
 {% load static %}
 
 {% block content %}
-    <div class="h2 text-center head">
-        Ваши заказы,
+    <div class="text-center h2 header">
+        Ваши заказы, 
         {% if user.first_name %}
-            {{ user.first_name|title }}
+            {{ user.first_name }}
         {% else %}
             Пользователь
         {% endif %}
     </div>
-    <table class="table orders_list">
+    <table class="table">
         <thead>
-        <tr>
             <th>ID</th>
             <th>Создан</th>
             <th>Обновлен</th>
             <th>Статус</th>
-        </tr>
         </thead>
         <tbody>
-        {% for item in object_list %}
-            {% if item.is_active %}
+            
+            {% for item in object_list %}
                 <tr>
-                    <td class="td1 orders_list">{{ item.pk }}</td>
-                    <td>{{ item.created|date:"Y-m-d H:i:s" }}</td>
-                    <td>{{ item.updated|date:"Y-m-d H:i:s" }}</td>
+                    <td>{{ item.pk }}</td>
+                    <td>{{ item.created|date:'d.m.Y H:i:s' }}</td>
+                    <td>{{ item.updated|date:'d.m.Y H:i:s' }}</td>
                     <td>{{ item.get_status_display }}</td>
                     <td>
-                        <a href="{% url 'ordersapp:order_read' item.pk %}">
-                            посмотреть
-                        </a>
+                        <a href="{% url 'order:read' item.pk %}"  class="btn btn-link">посмотреть</a>
                     </td>
                     <td>
+                        
                         {% if item.status == 'FM' %}
-                            <a href="{% url 'ordersapp:order_update' item.pk %}">
-                                редактировать
-                            </a>
+                        <a href="{% url 'order:update' item.pk %}"  class="btn btn-link">изменить</a>
                         {% endif %}
                     </td>
                     <td>
+                        
                         {% if item.status == 'FM' %}
-                            <a href="{% url 'ordersapp:order_delete' item.pk %}">
-                                удалить
-                            </a>
+                        <a href="{% url 'order:delete' item.pk %}"  class="btn btn-link">удалить</a>
                         {% endif %}
                     </td>
                 </tr>
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+                
         </tbody>
     </table>
-    <button class="btn  btn-outline-primary  btn-round">
-        <a href="{% url 'ordersapp:order_create' %}">новый</a>
-    </button>
     <hr>
-    <button class="btn  btn-default btn-round">
+    <div class="text-center">
+        <a href="{% url 'order:create' %}" class="btn btn-primary">новый заказ</a>
+        <hr>
         <a href="{% url 'index' %}">на главную</a>
-    </button>
-
-
-{% endblock %}
+    </div>
+{% endblock content %}
+    
