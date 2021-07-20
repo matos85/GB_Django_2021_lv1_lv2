@@ -20,14 +20,13 @@ from .views import contacts, main
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 app_name = 'geekshop'
 
 urlpatterns = [
     path('', main, name='index'),
     path('admin/', admin.site.urls),
     path('contacts/', contacts, name='contacts'),
-    path('products/', include(urls, namespace='products'),),
+    path('products/', include(urls, namespace='products'), ),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
     path('', include('social_django.urls', namespace='social')),
@@ -39,6 +38,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
-   import debug_toolbar
+    import debug_toolbar
 
-   urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]
+    urlpatterns += [re_path(r'^__debug__/', include(debug_toolbar.urls))]
