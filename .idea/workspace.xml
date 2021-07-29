@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="99045c1e-5b00-43ba-9564-2f5ab496677c" name="Default Changelist" comment="lesson14_new1" />
+    <list default="true" id="99045c1e-5b00-43ba-9564-2f5ab496677c" name="Default Changelist" comment="lesson14_new2">
+      <change afterPath="$PROJECT_DIR$/отчет.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +28,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -156,6 +159,7 @@
       <workItem from="1627564042614" duration="1199000" />
       <workItem from="1627565783845" duration="203000" />
       <workItem from="1627576344719" duration="245000" />
+      <workItem from="1627576594747" duration="209000" />
     </task>
     <task id="LOCAL-00001" summary="залил базу">
       <created>1621154369546</created>
@@ -353,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627576487779</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="lesson14_new2">
+      <created>1627576661361</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1627576661361</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +383,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lesson6" />
     <MESSAGE value="lesson7" />
     <MESSAGE value="lesson8" />
     <MESSAGE value="lesson8_v2" />
@@ -397,7 +407,8 @@
     <MESSAGE value="lesson16" />
     <MESSAGE value="lesson15_new1" />
     <MESSAGE value="lesson14_new1" />
-    <option name="LAST_COMMIT_MESSAGE" value="lesson14_new1" />
+    <MESSAGE value="lesson14_new2" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson14_new2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
