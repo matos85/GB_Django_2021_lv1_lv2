@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="99045c1e-5b00-43ba-9564-2f5ab496677c" name="Default Changelist" comment="lesson14_new2">
+      <change afterPath="$PROJECT_DIR$/отчет.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="leeson15" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="e142c90e-2599-4cde-b4d2-86ead6fd069f" />
+        <option name="url" value="https://github.com/matos85/GB_Django_2021_lv2.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sZxwHO2wpCXDVRLzAVM0O0dSx6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ordersapp/templates" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\geekshop\ordersapp\templates" />
+      <recent name="F:\geekshop\ordersapp" />
+      <recent name="F:\geekshop\geekshop" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\geekshop\ordersapp\templates\ordersapp" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django Server.geekshop">
+    <configuration name="fill_db" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="geekshop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mainapp/management/commands" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainapp/management/commands/fill_db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="geekshop" type="Python.DjangoServer" factoryName="Django server">
+      <module name="geekshop" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="geekshop.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.fill_db" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99045c1e-5b00-43ba-9564-2f5ab496677c" name="Default Changelist" comment="" />
+      <created>1621094149786</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621094149786</updated>
+      <workItem from="1621094194485" duration="743000" />
+      <workItem from="1621095992098" duration="2480000" />
+      <workItem from="1621101070804" duration="3200000" />
+      <workItem from="1621160735776" duration="3656000" />
+      <workItem from="1621495805971" duration="310000" />
+      <workItem from="1621667451943" duration="14062000" />
+      <workItem from="1621696221133" duration="595000" />
+      <workItem from="1622826185425" duration="66000" />
+      <workItem from="1622826318937" duration="4000" />
+      <workItem from="1624011674709" duration="40000" />
+      <workItem from="1624014399912" duration="17723000" />
+      <workItem from="1624109492176" duration="2632000" />
+      <workItem from="1624188132383" duration="8416000" />
+      <workItem from="1624356989469" duration="7000" />
+      <workItem from="1624357452921" duration="7753000" />
+      <workItem from="1624640527961" duration="821000" />
+      <workItem from="1625129886427" duration="43000" />
+      <workItem from="1625130001109" duration="5263000" />
+      <workItem from="1625136129488" duration="17712000" />
+      <workItem from="1625211487558" duration="1308000" />
+      <workItem from="1625555074183" duration="12103000" />
+      <workItem from="1625736632013" duration="12904000" />
+      <workItem from="1625997152964" duration="919000" />
+      <workItem from="1626005105763" duration="1071000" />
+      <workItem from="1626611227300" duration="481000" />
+      <workItem from="1626615038511" duration="4518000" />
+      <workItem from="1626622156056" duration="3711000" />
+      <workItem from="1626973860538" duration="3000" />
+      <workItem from="1627059148322" duration="249000" />
+      <workItem from="1627060416895" duration="57000" />
+      <workItem from="1627564042614" duration="1199000" />
+      <workItem from="1627565783845" duration="203000" />
+      <workItem from="1627576344719" duration="245000" />
+      <workItem from="1627576594747" duration="209000" />
+    </task>
+    <task id="LOCAL-00001" summary="залил базу">
+      <created>1621154369546</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1621154369546</updated>
+    </task>
+    <task id="LOCAL-00002" summary="lesson6">
+      <created>1621161911000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621161911000</updated>
+    </task>
+    <task id="LOCAL-00003" summary="lesson7">
+      <created>1621235514942</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621235514942</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lesson7">
+      <created>1621235535382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621235535382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="lesson8">
+      <created>1621668243513</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621668243513</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lesson8_v2">
+      <created>1621681279793</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621681279793</updated>
+    </task>
+    <task id="LOCAL-00007" summary="lesson8_v3">
+      <created>1621684200547</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621684200547</updated>
+    </task>
+    <task id="LOCAL-00008" summary="lesson8_v4">
+      <created>1621686611601</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621686611602</updated>
+    </task>
+    <task id="LOCAL-00009" summary="lesson_v1">
+      <created>1624034417607</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624034417607</updated>
+    </task>
+    <task id="LOCAL-00010" summary="lesson1">
+      <created>1624034950902</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1624034950902</updated>
+    </task>
+    <task id="LOCAL-00011" summary="lesson1_v2">
+      <created>1624036253706</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1624036253706</updated>
+    </task>
+    <task id="LOCAL-00012" summary="lesson1_v2">
+      <created>1624036532479</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1624036532479</updated>
+    </task>
+    <task id="LOCAL-00013" summary="lesson1_v2.1">
+      <created>1624037848819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1624037848819</updated>
+    </task>
+    <task id="LOCAL-00014" summary="lesson1_v2.2">
+      <created>1624110923130</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1624110923130</updated>
+    </task>
+    <task id="LOCAL-00015" summary="lesson2">
+      <created>1624361634994</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1624361634994</updated>
+    </task>
+    <task id="LOCAL-00016" summary="lesson2_v2">
+      <created>1624365521268</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1624365521268</updated>
+    </task>
+    <task id="LOCAL-00017" summary="lesson11">
+      <created>1625153652541</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1625153652541</updated>
+    </task>
+    <task id="LOCAL-00018" summary="lesson11_v2">
+      <created>1625154028426</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1625154028426</updated>
+    </task>
+    <task id="LOCAL-00019" summary="lesson11_v3">
+      <created>1625568184854</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1625568184854</updated>
+    </task>
+    <task id="LOCAL-00020" summary="lesson12">
+      <created>1625752565428</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1625752565428</updated>
+    </task>
+    <task id="LOCAL-00021" summary="lesson12_v1">
+      <created>1625752667677</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1625752667677</updated>
+    </task>
+    <task id="LOCAL-00022" summary="lesson14">
+      <created>1626622476960</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1626622476960</updated>
+    </task>
+    <task id="LOCAL-00023" summary="lesson15">
+      <created>1626796996997</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1626796996997</updated>
+    </task>
+    <task id="LOCAL-00024" summary="lesson15_v2">
+      <created>1626797305996</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1626797305996</updated>
+    </task>
+    <task id="LOCAL-00025" summary="lesson15_v3">
+      <created>1626797561297</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1626797561297</updated>
+    </task>
+    <task id="LOCAL-00026" summary="lesson16">
+      <created>1627059262073</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1627059262073</updated>
+    </task>
+    <task id="LOCAL-00027" summary="lesson15_new1">
+      <created>1627565234413</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1627565234413</updated>
+    </task>
+    <task id="LOCAL-00028" summary="lesson14_new1">
+      <created>1627576487779</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1627576487779</updated>
+    </task>
+    <task id="LOCAL-00029" summary="lesson14_new2">
+      <created>1627576661361</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1627576661361</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lesson7" />
+    <MESSAGE value="lesson8" />
+    <MESSAGE value="lesson8_v2" />
+    <MESSAGE value="lesson8_v3" />
+    <MESSAGE value="lesson8_v4" />
+    <MESSAGE value="lesson_v1" />
+    <MESSAGE value="lesson1" />
+    <MESSAGE value="lesson1_v2" />
+    <MESSAGE value="lesson1_v2.1" />
+    <MESSAGE value="lesson1_v2.2" />
+    <MESSAGE value="lesson2" />
+    <MESSAGE value="lesson2_v2" />
+    <MESSAGE value="lesson11" />
+    <MESSAGE value="lesson11_v2" />
+    <MESSAGE value="lesson11_v3" />
+    <MESSAGE value="lesson12" />
+    <MESSAGE value="lesson12_v1" />
+    <MESSAGE value="lesson14" />
+    <MESSAGE value="lesson15" />
+    <MESSAGE value="lesson15_v2" />
+    <MESSAGE value="lesson15_v3" />
+    <MESSAGE value="lesson16" />
+    <MESSAGE value="lesson15_new1" />
+    <MESSAGE value="lesson14_new1" />
+    <MESSAGE value="lesson14_new2" />
+    <option name="LAST_COMMIT_MESSAGE" value="lesson14_new2" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/geekshop$fill_db.coverage" NAME="fill_db Coverage Results" MODIFIED="1621097087201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp/management/commands" />
+  </component>
+</project>
