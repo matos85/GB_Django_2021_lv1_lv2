@@ -1,13 +1,7 @@
-http://178.21.11.220/auth/login/ POST username=django&password=123
-http://178.21.11.220/
-http://178.21.11.220/products/
-http://178.21.11.220/contacts/
-http://178.21.11.220/products/category/1/
-http://178.21.11.220/products/category/2/
-http://178.21.11.220/products/category/3/
-http://178.21.11.220/products/category/4/
-http://178.21.11.220/basket/
-http://178.21.11.220/order/
-http://178.21.11.220/auth/edit/
-http://178.21.11.220/order/update/3/
-http://178.21.11.220/order/update/4/
+http://192.168.0.98/
+http://192.168.0.98/products/
+http://192.168.0.98/contact/
+http://192.168.0.98/products/category/1/
+http://192.168.0.98/products/category/2/
+http://192.168.0.98/products/category/3/
+http://192.168.0.98/products/category/4/
