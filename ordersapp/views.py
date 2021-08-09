@@ -1,62 +1,55 @@
-import json
-
-from ordersapp.models import Order, OrderItem
-from basketapp.models import Basket
-from ordersapp.forms import OrderItemEditForm
-from mainapp.models import Product
-
-from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.urls.base import reverse
-from django.forms.models import inlineformset_factory
-from django.shortcuts import get_object_or_404, render
-from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic.detail import DetailView
-from django.urls import reverse_lazy
 from django.db import transaction
-from django.http import HttpResponseRedirect, HttpResponse
+from django.db.models.signals import pre_delete, pre_save
+from django.dispatch import receiver
+from django.forms import inlineformset_factory
+from django.http import HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
+
+from basketapp.models import Basket
+from mainapp.models import Product
+from ordersapp.forms import OrderItemForm
+from ordersapp.models import Order, OrderItem
+
+def get_product_price(request, pk):
+   if request.is_ajax():
+       product = Product.objects.filter(pk=int(pk)).first()
+       if product:
+           return JsonResponse({'price': product.price})
+       else:
+           return JsonResponse({'price': 0})
 
 
 class OrderList(ListView):
     model = Order
 
     def get_queryset(self):
-        return Order.objects.filter(user=self.request.user, is_active=True)
-
-
-class OrderCreate(CreateView):
-    model = Order
-    success_url = reverse_lazy('order:list')
-    fields = []
+        return Order.objects.filter(user=self.request.user)
 
     @method_decorator(login_required())
     def dispatch(self, *args, **kwargs):
-        return super(CreateView, self).dispatch(*args, **kwargs)
+        return super(ListView, self).dispatch(*args, **kwargs)
+
+
+class OrderItemsCreate(CreateView):
+    model = Order
+    fields = []
+    success_url = reverse_lazy('ordersapp:orders_list')
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-
-        OrderFormSet = inlineformset_factory(
-            Order,
-            OrderItem,
-            form=OrderItemEditForm,
-            extra=1
-        )
+        data = super(OrderItemsCreate, self).get_context_data(**kwargs)
+        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=1)
 
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
         else:
-            basket_items = Basket.objects.filter(user=self.request.user)
+            basket_items = Basket.get_items(self.request.user)
             if len(basket_items):
-                OrderFormSet = inlineformset_factory(
-                    Order,
-                    OrderItem,
-                    form=OrderItemEditForm,
-                    extra=len(basket_items)
-                )
+                OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=len(basket_items))
                 formset = OrderFormSet()
-
                 for num, form in enumerate(formset.forms):
                     form.initial['product'] = basket_items[num].product
                     form.initial['quantity'] = basket_items[num].quantity
@@ -66,7 +59,6 @@ class OrderCreate(CreateView):
                 formset = OrderFormSet()
 
         data['orderitems'] = formset
-
         return data
 
     def form_valid(self, form):
@@ -83,39 +75,30 @@ class OrderCreate(CreateView):
         if self.object.get_total_cost() == 0:
             self.object.delete()
 
-        return super().form_valid(form)
-
-
-class OrderUpdate(UpdateView):
-    model = Order
-    success_url = reverse_lazy('order:list')
-    fields = []
+        return super(OrderItemsCreate, self).form_valid(form)
 
     @method_decorator(login_required())
     def dispatch(self, *args, **kwargs):
-        return super(UpdateView, self).dispatch(*args, **kwargs)
+        return super(CreateView, self).dispatch(*args, **kwargs)
+
+
+class OrderItemsUpdate(UpdateView):
+    model = Order
+    fields = []
+    success_url = reverse_lazy('ordersapp:orders_list')
 
     def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-
-        OrderFormSet = inlineformset_factory(
-            Order,
-            OrderItem,
-            form=OrderItemEditForm,
-            extra=1
-        )
-
+        data = super(OrderItemsUpdate, self).get_context_data(**kwargs)
+        OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=1)
         if self.request.POST:
-            formset = OrderFormSet(self.request.POST, instance=self.object)
+            data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
         else:
             queryset = self.object.orderitems.select_related()
             formset = OrderFormSet(instance=self.object, queryset=queryset)
             for form in formset.forms:
                 if form.instance.pk:
                     form.initial['price'] = form.instance.product.price
-
-        data['orderitems'] = formset
-
+            data['orderitems'] = formset
         return data
 
     def form_valid(self, form):
@@ -123,7 +106,6 @@ class OrderUpdate(UpdateView):
         orderitems = context['orderitems']
 
         with transaction.atomic():
-            # form.instance.user = self.request.user
             self.object = form.save()
             if orderitems.is_valid():
                 orderitems.instance = self.object
@@ -132,31 +114,48 @@ class OrderUpdate(UpdateView):
         if self.object.get_total_cost() == 0:
             self.object.delete()
 
-        return super().form_valid(form)
+        return super(OrderItemsUpdate, self).form_valid(form)
 
+    @method_decorator(login_required())
+    def dispatch(self, *args, **kwargs):
+        return super(UpdateView, self).dispatch(*args, **kwargs)
 
 class OrderDelete(DeleteView):
-    model = Order
-    success_url = reverse_lazy('order:list')
-
+   model = Order
+   success_url = reverse_lazy('ordersapp:orders_list')
 
 class OrderRead(DetailView):
-    model = Order
+   model = Order
+
+   def get_context_data(self, **kwargs):
+       context = super(OrderRead, self).get_context_data(**kwargs)
+       context['title'] = 'заказ/просмотр'
+       return context
+
+   @method_decorator(login_required())
+   def dispatch(self, *args, **kwargs):
+       return super(DetailView, self).dispatch(*args, **kwargs)
+
+def order_forming_complete(request, pk):
+   order = get_object_or_404(Order, pk=pk)
+   order.status = Order.SENT_TO_PROCEED
+   order.save()
+
+   return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+
+@receiver(pre_save, sender=OrderItem)
+@receiver(pre_save, sender=Basket)
+def product_quantity_update_save(sender, update_fields, instance, **kwargs):
+   if update_fields == 'quantity' or 'product':
+       if instance.pk:
+           instance.product.quantity -= instance.quantity - sender.get_item(instance.pk).quantity
+       else:
+           instance.product.quantity -= instance.quantity
+       instance.product.save()
 
 
-def forming_complite(request, pk):
-    order = get_object_or_404(Order, pk=pk)
-    order.status = Order.SENT_TO_PROCEED
-    order.save()
-
-    return HttpResponseRedirect(reverse('order:list'))
-
-
-def get_product_price(request, pk):
-    data_response = {}
-
-    if request.is_ajax():
-        product = get_object_or_404(Product, pk=pk)
-        data_response['price'] = str(product.price)
-
-    return HttpResponse(json.dumps(data_response), content_type='application/json')
+@receiver(pre_delete, sender=OrderItem)
+@receiver(pre_delete, sender=Basket)
+def product_quantity_update_delete(sender, instance, **kwargs):
+   instance.product.quantity += instance.quantity
+   instance.product.save()

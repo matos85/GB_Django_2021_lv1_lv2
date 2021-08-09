@@ -1,0 +1,65 @@
+{% extends 'mainapp/page-layout.html' %}
+{% load static %}
+{% load avatar_tag %}
+
+{% block content %}
+    {% include 'mainapp/include/block-submenu.html' %}
+    <div class="product">
+        <div class="product__cell">
+            <div style="margin: 50px 0px 0px 50px">
+                <img alt="" src="/media/{{ product.image }}"/>
+            </div>
+            <div class="product__gallery">
+                        <span class="product__gallery-item">
+                            <img alt="" src="/media/{{ product.image }}"/>
+                        </span>
+                <span class="product__gallery-item">
+                            <img alt="" src="/media/{{ product.image }}"/>
+                        </span>
+                <span class="product__gallery-item product__gallery-item_selected">
+                            <img alt="" src="/media/{{ product.image }}"/>
+                        </span>
+            </div>
+        </div>
+
+
+        <div class="product__cell">
+            <div class="product__title">{{ product.name }}</div>
+            <div class="product__price"><b>{{ product.price }}</b> euro</div>
+            <div class="product__button">
+                <a href='{% url 'basket:add' product.pk %}' class="button button_red">
+                    <span class="button_text">Order us</span>
+                </a>
+            </div>
+            <div class="product__info">
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    {##}
+    {##}
+    {#    <div class="wrapper section">#}
+    {#        <div class="container">#}
+    <div class="section-header">
+        <span class="section-title">Related products</span>
+        <span class="section-aside">Explore all</span>
+    </div>
+    <div class="tiles">
+        {% for product in same_products %}
+            <a class="tiles__tile" href="{% url 'catalog:product' product.pk %}">
+                <div class="tile-info">
+                    <div class="tile-info__content">
+                        <span class="button button_round"></span>
+                        <div class="tile-info__title">{{ product.name }}</div>
+                        <div class="tile-info__description">{{ product.short_desc }}</div>
+                    </div>
+                </div>
+                <img alt="{{ product.name }}" src="{{ product.image|media_folder_products }}"/>
+            </a>
+        {% endfor %}
+    </div>
+    </div>
+    {#    </div>#}
+    {#    </div>#}
+{% endblock %}

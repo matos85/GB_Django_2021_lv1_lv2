@@ -1,24 +1,26 @@
-{% extends 'adminapp/base.html' %}
+{% extends 'mainapp/page-layout.html' %}
 {% load static %}
 
 
+{% block header %}
+    {% include 'adminapp/includes/inc_menu.html' %}
+{% endblock %}
+
 {% block content %}
-    <div class="row">
-        <div class="text-center">
-            <img src="/media/{{ edit_product.image }}" class="w-25">
+    <div class="wrapper">
+        <div class="container">
+            <div class="new_category_form">
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ update_form.as_p }}
+                    <input class="form-control" type="submit" value="Save">
+                </form>
+                <button class="btn btn-round form-control last">
+                    <a href="{% url 'admin:products' category.pk %}">
+                        Back
+                    </a>
+                </button>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <form class="form-horizontal" action="{% url 'admin_staff:product_update' category.pk %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ product_form.as_p }}
-            <input class="form-control" type="submit" value="сохранить">
-        </form>
-        <button class="btn btn-round form-control last">
-            <a href="{% url 'admin_staff:categories' %}" class="">
-                к категориям
-            </a>
-        </button>
-    </div>
     </div>
 {% endblock %}
