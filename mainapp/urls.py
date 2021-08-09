@@ -1,10 +1,11 @@
+import mainapp.views as mainapp
 from django.urls import path
-from .views import products, product
 
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('', products, name='index'),
-    path('category/<int:pk>/', products, name='category'),
-    path('product/<int:pk>/', product, name='product'),
+    path('', mainapp.catalog, name='index'),
+    path('category/<int:pk>/', mainapp.catalog, name='category'),
+    path('category/<int:pk>/<int:page>/', mainapp.catalog, name='page'),
+    path('product/<int:pk>/', mainapp.product, name='product'),
 ]

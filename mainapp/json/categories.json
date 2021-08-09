@@ -1,22 +1,18 @@
 [
     {
-        "name": "дом",
-        "description": "",
-        "is_active": true
+        "name": "home",
+        "description": ""
     },
     {
-        "name": "офис",
-        "description": "",
-        "is_active": true
+        "name": "office",
+        "description": ""
     },
     {
-        "name": "модерн",
-        "description": "",
-        "is_active": true
+        "name": "modern",
+        "description": ""
     },
     {
-        "name": "классика",
-        "description": "",
-        "is_active": true
+        "name": "classic",
+        "description": ""
     }
 ]

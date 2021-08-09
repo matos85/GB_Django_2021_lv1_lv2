@@ -1,0 +1,68 @@
+{% extends 'mainapp/page-layout.html' %}
+{% load static %}
+{% load avatar_tag %}
+
+{% block content %}
+    {% include 'mainapp/include/block-submenu.html' %}
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="product">
+                <div class="product__cell">
+                    <div style="margin: 50px 0px 0px 50px">
+                        <img src="{{ hot_product.image|media_folder_products }}">
+                    </div>
+                    <div class="product__gallery">
+                        <span class="product__gallery-item">
+                            <img alt="" src="/media/{{ hot_product.image }}"/>
+                        </span>
+                        <span class="product__gallery-item">
+                            <img alt="" src="/media/{{ hot_product.image }}"/>
+                        </span>
+                        <span class="product__gallery-item product__gallery-item_selected">
+                            <img alt="" src="/media/{{ hot_product.image }}"/>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="product__cell">
+                    <div class="product__title">{{ hot_product.name }}</div>
+                    <div class="product__subtitle">Hot Deal</div>
+                    <div class="product__price"><b>{{ hot_product.price }}</b>€</div>
+                    <div class="product__button">
+                        <a href='{% url 'basket:add' hot_product.pk %}' class="button button_red">
+                            <span class="button_text">Order us</span>
+                        </a>
+                    </div>
+                    <div class="product__info">
+                        <p>{{ hot_product.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-title">Related products</span>
+                <span class="section-aside">Explore all</span>
+            </div>
+            <div class="tiles">
+                {% for product in same_products %}
+                    <a class="tiles__tile" href="{% url 'catalog:product' product.pk %}">
+                        <div class="tile-info">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">{{ product.name }}</div>
+                                <div class="tile-info__description">{{ product.short_desc }}</div>
+                            </div>
+                        </div>
+                        <img alt="{{ product.name }}" src="{{ product.image|media_folder_products }}"/>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

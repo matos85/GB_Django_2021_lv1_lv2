@@ -1,35 +1,22 @@
-{% extends 'authapp/base.html' %}
+{% extends 'mainapp/page-layout.html' %}
 {% load static %}
 
 {% block content %}
-    <div class="container">
-        {% if messages %}
-        <div class="row">
-            <div class="mx-auto col-3">
-                {% for message in messages %}
-                    <div class="alert alert-info" role="alert">{{ message }}</div>
-                {% endfor %}
+    <div class="wrapper">
+        <div class="container">
+            {% if 'register' in request.META.HTTP_REFERER %}
+                <span>Message sent</span>
+            {% endif %}
+            <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <br>
+                <input class="form-control" type="submit" value="Login">
+            </form>
+            <div>
+                <a class="btn btn-round form-control" href="{% url 'auth:register' %}">Registration</a>
+                <a class="btn btn-round form-control" href="{% url 'social:begin' 'google-oauth2' %}?next=/">Log in with Google</a>
             </div>
         </div>
-        {% endif %}
-        <div class="row">
-            <div class="mx-auto col-3">
-                <form class="form-horizontal" action="{% url 'auth:login' %}" method="post" >
-                    {% csrf_token %}
-                    {{ login_form.as_p }}
-                    <button type="submit" class="btn btn-primary">Войти</button>
-                </form>
-            </div>
-        </div>
-        <button class="btn btn-round form-control">
-            <a href="{% url 'social:begin' 'vk-oauth2' %}?next=/" class="">
-                Вход через ВК
-            </a>
-        </button>
-        <button class="btn btn-round form-control">
-            <a href="{% url 'auth:register' %}" class="">
-                зарегистрироваться
-            </a>
-        </button>
     </div>
 {% endblock %}
